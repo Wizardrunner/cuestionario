@@ -1,0 +1,5 @@
+/* styles.css */
+ol {list-style-type:lower-latin;}
+.correcta {color: green;}
+.incorrecta {color: red;}
+.oculto {display: none;}

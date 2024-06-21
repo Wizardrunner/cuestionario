@@ -70,8 +70,22 @@ function siguientePregunta() {
 
 function mostrarResultado() {
     const RESULTADO = document.getElementById('resultado');
-    resultado.innerText = `Has obtenido ${puntosObtenidos} de 10 puntos.`;
-    resultado.classList.remove('oculto');
+    RESULTADO.innerText = `Has obtenido ${puntosObtenidos} de ${PREGUNTAS.length} puntos.`;
+    RESULTADO.classList.remove('oculto');
+
+    const botonSiguiente = document.getElementById('botonSiguiente');
+    botonSiguiente.innerText = 'Reiniciar';
+    botonSiguiente.onclick = reiniciarCuestionario;
+    botonSiguiente.classList.remove('oculto');
+}
+
+function reiniciarCuestionario() {
+    preguntaActual = 0;
+    puntosObtenidos = 0;
+    document.getElementById('botonSiguiente').innerText = 'Siguiente';
+    document.getElementById('botonSiguiente').onclick = siguientePregunta;
+    document.getElementById('resultado').classList.add('oculto');
+    mostrarPregunta();
 }
 
 document.addEventListener('DOMContentLoaded', cargarPreguntas);
